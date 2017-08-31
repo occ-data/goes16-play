@@ -18,9 +18,9 @@ g16nc = Dataset(sys.argv[1], 'r')
 band1 = g16nc.variables['CMI_C01'][:]
 
 # Get the Blue, Red, and Veggie bands + gamma correct
-ref_blue = np.ma.array(np.sqrt(g16nc.variables['CMI_C01'][:]), mask=test.mask)
-ref_red = np.ma.array(np.sqrt(g16nc.variables['CMI_C02'][:]), mask=test.mask)
-ref_veggie = np.ma.array(np.sqrt(g16nc.variables['CMI_C03'][:]), mask=test.mask)
+ref_blue = np.ma.array(np.sqrt(g16nc.variables['CMI_C01'][:]), mask=band1.mask)
+ref_red = np.ma.array(np.sqrt(g16nc.variables['CMI_C02'][:]), mask=band1.mask)
+ref_veggie = np.ma.array(np.sqrt(g16nc.variables['CMI_C03'][:]), mask=band1.mask)
 
 # Make the green band using a linear relationship
 ref_green = np.ma.copy(ref_veggie)
